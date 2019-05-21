@@ -198,10 +198,14 @@
                         <viewLayoutGuide key="safeArea" id="NHu-Jp-waS"/>
                     </view>
                     <navigationItem key="navigationItem" id="uwL-lj-vi6">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="29p-ag-gPS"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="vua-Od-vVK">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="oHe-Wb-9Mo" id="p5i-4h-4qx"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="26Z-nP-bWq">
                             <connections>
-                                <segue destination="NrF-HJ-wE1" kind="unwind" unwindAction="saveSettingsWithSegue:" id="csj-MQ-jJL"/>
+                                <action selector="savebutton:" destination="oHe-Wb-9Mo" id="zwz-zt-hKz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -213,7 +217,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eot-vx-Bb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="NrF-HJ-wE1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1697" y="-21"/>
         </scene>

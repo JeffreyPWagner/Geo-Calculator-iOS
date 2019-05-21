@@ -15,7 +15,7 @@ protocol settingsViewControllerDelegate {
 class settingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var settingsDelegate: settingsViewControllerDelegate?
-    var distanceSelection: String = "Kilometers"
+    var distanceSelection: String = "Miles"
     var bearingSelection: String = "Degrees"
     
     
@@ -23,15 +23,14 @@ class settingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         return 1;
     }
     
-
-    @IBAction func cancelButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func savebutton(_ sender: UIBarButtonItem) {
+        settingsDelegate?.updateUnits(distanceUnits: distanceSelection, bearingUnits: bearingSelection)
+        
+        navigationController?.popViewController(animated: true)
     }
-    @IBAction func saveButtonPressed(_ sender: Any) {
-        
-            settingsDelegate?.updateUnits(distanceUnits: distanceSelection, bearingUnits: bearingSelection)
-        
-        self.dismiss(animated: true, completion: nil)
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     
@@ -126,9 +125,10 @@ class settingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     func tapFunctionBearing(sender:UITapGestureRecognizer) {
         bearingPicker.isHidden = false;
     }
-
+/*
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         settingsDelegate?.updateUnits(distanceUnits: distanceSelection, bearingUnits: bearingSelection)
     }
+ */
 }
