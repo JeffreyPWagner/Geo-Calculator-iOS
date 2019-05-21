@@ -46,7 +46,6 @@ class MainViewController: UIViewController, settingsViewControllerDelegate {
         }
         
         guard let lat1Double = Double(lata1), let lat2Double = Double(lata2), let long1Double = Double(long1), let long2Double = Double(long2) else {
-            distanceValue.text = "invaid input"
             return
         }
         
