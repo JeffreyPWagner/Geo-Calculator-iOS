@@ -84,14 +84,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APs-dx-yGM">
-                                <rect key="frame" x="179" y="832" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="oHe-Wb-9Mo" kind="show" identifier="chooseUnits" id="hmj-B7-SDh"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bearingValue" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9V-Aw-5Y5">
                                 <rect key="frame" x="123" y="341" width="232" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -99,6 +91,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcL-qU-mU5">
+                                <rect key="frame" x="179" y="832" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <action selector="settingspressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ffm-nf-POp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -111,6 +111,7 @@
                         <outlet property="lat2" destination="bNp-kh-AR5" id="bPn-ML-GVO"/>
                         <outlet property="long1" destination="NkI-V3-BDQ" id="tNH-T2-gtF"/>
                         <outlet property="long2" destination="RLv-m7-t7R" id="gER-1b-1Ld"/>
+                        <segue destination="oHe-Wb-9Mo" kind="show" identifier="segueToSettings" id="tlu-nd-oBW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -197,14 +198,9 @@
                         <viewLayoutGuide key="safeArea" id="NHu-Jp-waS"/>
                     </view>
                     <navigationItem key="navigationItem" id="uwL-lj-vi6">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="29p-ag-gPS">
-                            <connections>
-                                <action selector="cancelButtonPressed:" destination="oHe-Wb-9Mo" id="piY-vR-ieC"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="29p-ag-gPS"/>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="26Z-nP-bWq">
                             <connections>
-                                <action selector="saveButtonPressed:" destination="oHe-Wb-9Mo" id="LlQ-ci-NK9"/>
                                 <segue destination="NrF-HJ-wE1" kind="unwind" unwindAction="saveSettingsWithSegue:" id="csj-MQ-jJL"/>
                             </connections>
                         </barButtonItem>

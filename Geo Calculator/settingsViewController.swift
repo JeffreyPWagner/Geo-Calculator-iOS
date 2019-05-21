@@ -8,14 +8,15 @@
 
 import UIKit
 
-protocol settingsViewControllerDelegate: class {
+protocol settingsViewControllerDelegate {
     func updateUnits( distanceUnits: String?, bearingUnits: String?)
 }
 
 class settingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    weak var settingsDelegate: settingsViewControllerDelegate?
-
+    var settingsDelegate: settingsViewControllerDelegate?
+    var distanceSelection: String = "Kilometers"
+    var bearingSelection: String = "Degrees"
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -27,7 +28,9 @@ class settingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func saveButtonPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "segueToSettings", sender: self)
+        
+            settingsDelegate?.updateUnits(distanceUnits: distanceSelection, bearingUnits: bearingSelection)
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -50,7 +53,7 @@ class settingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         super.didReceiveMemoryWarning()
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        settingsDelegate?.updateUnits(distanceUnits: "Meters1", bearingUnits: "BearingUUU")
+        
 
         if pickerView == distancePicker {
             return distancePickerData[row]
@@ -66,9 +69,11 @@ class settingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component:Int){
         if pickerView == distancePicker {
             distanceUnitsValue.text = distancePickerData[row];
+            distanceSelection = distancePickerData[row]
         }
         else if pickerView == bearingPicker {
             bearingUnitsValue.text = bearingPickerData[row]
+            bearingSelection = bearingPickerData[row]
         }
     }
 
@@ -122,5 +127,8 @@ class settingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         bearingPicker.isHidden = false;
     }
 
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        settingsDelegate?.updateUnits(distanceUnits: distanceSelection, bearingUnits: bearingSelection)
+    }
 }
