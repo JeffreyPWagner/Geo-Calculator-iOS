@@ -58,12 +58,12 @@
 		4EB34EDD228B86B900DEFDD0 /* Geo Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				4EB34EE5228B86B900DEFDD0 /* Assets.xcassets */,
+				4EB34EE0228B86B900DEFDD0 /* MainViewController.swift */,
+				4EA581EA228E215500C1A4FA /* settingsViewController.swift */,
 				4E09F9D022933052008EAC0D /* DecimalMinusTextField.swift */,
 				4EB34EDE228B86B900DEFDD0 /* AppDelegate.swift */,
-				4EB34EE0228B86B900DEFDD0 /* MainViewController.swift */,
 				4EB34EE2228B86B900DEFDD0 /* Main.storyboard */,
-				4EA581EA228E215500C1A4FA /* settingsViewController.swift */,
-				4EB34EE5228B86B900DEFDD0 /* Assets.xcassets */,
 				4EB34EE7228B86B900DEFDD0 /* LaunchScreen.storyboard */,
 				4EB34EEA228B86B900DEFDD0 /* Info.plist */,
 			);
